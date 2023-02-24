@@ -1,5 +1,5 @@
 body {
-    width:70%;
+    width:100%;
     margin: auto;
     background-color: white;
     
@@ -22,11 +22,11 @@ h1 {
 
 nav li {
     display: inline-block;
-    padding: 24px;
+    padding-right: 15px;
 }
 
 .menuSuperior {
-    font-size: xx-large;
+    font-size: large;
 }
 
 li {
@@ -57,6 +57,7 @@ h2 {
 
 a {
     color: black;
+    text-decoration:none;
 }
 
 h3 {
