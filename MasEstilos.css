@@ -8,6 +8,10 @@ body {
     background: url(../WEB-INF/ conversion1.jpg);
     background-size: cover;
     text-align: center;
+    
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 2.5rem;
 }
 @media screen and (min-width: 600px) {
     body {       
@@ -27,6 +31,7 @@ nav li {
 
 .menuSuperior {
     font-size: large;
+    color: white;
 }
 
 li {
@@ -68,3 +73,48 @@ h4 {
     color: black;
 }
 
+.barra_superior {
+    background-color: black; 
+    color: black; 
+    display: flex; 
+    padding: 0px; 
+    margin: 0px;
+}
+
+.titulo {
+    font-size:22px; 
+    width: 40%; 
+    text-align: left; 
+    padding-left:5%;
+}
+
+.navegacion {
+    display: block; 
+    background-color: black; 
+    text-align: right; 
+    width: 60%; 
+    color: white; 
+    padding-right: 1%; 
+    font-size: 20px;
+}
+
+.menuSuperior li a {
+    color: white;
+}
+
+footer {
+    background-color: black; 
+    bottom: 0; 
+    position: absolute; 
+    width: 100%;
+}
+
+footer nav ul li {
+    margin-right: 0.5%; 
+    margin-left: 0.5%;
+    
+}
+
+footer nav ul li a {
+    color: white;
+}
