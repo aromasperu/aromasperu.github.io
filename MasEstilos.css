@@ -32,15 +32,16 @@ nav li {
     font-size: 15.5px;
     color: white;
     
-    padding-left: 5px;
+    padding-left: 0px;
     margin: 0px;
     vertical-align: central;
-    height: 78px;
+    height: 30px;
 }
 
 .menuSuperior li {
-    padding-right: 4px;
-    padding-left: 4px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 25px;
 }
 
 li {
@@ -87,7 +88,6 @@ h4 {
 .barra_superior {
     background-color: black; 
     color: black; 
-    display: flex;
     position: fixed;
     width: 100%;
     padding: 0px;
@@ -96,34 +96,35 @@ h4 {
 }
 
 .titulo {
-    font-size:17px; 
+
+    font-size:22px; 
     color: white;
-    width: 85px;
-    text-align: left; 
-    padding-left:4%;
+    width: 100%;
+    text-align: center; 
+    padding-left:0%;
     padding-right:0%;
     border: none;
     margin-left: 0px;
     margin-right: 0px;
     padding-top: 8px;
-    padding-bottom: 0px;
+    padding-bottom: 8px;
     
     margin: 0px;
     
 }
 
 .navegacion {
-    display: block; 
     background-color: black; 
-    text-align: right; 
-    width: 85%;
+    text-align: center; 
+    width: 100%;
  
     color: red; 
     padding-right: 1%;
     padding-left: 0%;
     margin: 0px;
     border: none;
-    font-size: 18px;
+    font-size: 10px;
+    height: 35px;
 }
 
 .menuSuperior li a {
@@ -153,4 +154,14 @@ footer nav ul li {
 footer nav ul li a {
     color: white;
     
+}
+
+.pedidos_aqui_por_whatsapp {
+    background-color: #25D366;
+    border-radius: 25px;
+    height: 30px;
+    width: 250px;
+    text-align: center;
+    display: inline-block;
+    padding-top: 10px;
 }
