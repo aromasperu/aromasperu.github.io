@@ -6,11 +6,11 @@ body {
     background: url(../WEB-INF/ conversion1.jpg);
     background-size: cover;
     text-align: center;
-    
+    display: inline-block;
     position: relative;
     min-height: 100vh;
     border-bottom: 2.5rem;
-    
+    font-family: sans-serif;
 }
 @media screen and (min-width: 600px) {
     body {       
@@ -29,13 +29,13 @@ nav li {
 }
 
 .menuSuperior {
-    font-size: 15.5px;
+    font-size: 14.5px;
     color: white;
     
     padding-left: 0px;
     margin: 0px;
     vertical-align: central;
-    height: 30px;
+    
 }
 
 .menuSuperior li {
@@ -93,6 +93,9 @@ h4 {
     padding: 0px;
     margin: 0px;
     border: none;
+    padding-bottom: 5px;
+    
+    
 }
 
 .titulo {
@@ -108,8 +111,9 @@ h4 {
     margin-right: 0px;
     padding-top: 8px;
     padding-bottom: 8px;
-    
+    background-color: black;
     margin: 0px;
+    font-family: Verdana;
 
 }
 
@@ -124,7 +128,7 @@ h4 {
     margin: 0px;
     border: none;
     font-size: 10px;
-    height: 35px;
+    
 }
 
 .menuSuperior li a {
@@ -166,3 +170,7 @@ footer nav ul li a {
     padding-top: 10px;
 }
 
+ul li {
+    text-align: left;
+
+}
