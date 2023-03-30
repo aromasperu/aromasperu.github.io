@@ -75,6 +75,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     container.style.display = "inline";
                     
                     content.style.display = "inline-block";
+                    container.style.backgroundColor = "beige";
                     }
                 else if (windowHeight <= imageHeight) {
                     image.style.height = "calc(100vh - 100px)";
@@ -125,18 +126,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <!--    <body style="background-image: url('../../src/java/imagenes/conversion4.png');"> -->
 
-    <body onload = "ajustarMediumDiv()">
+    <body onload = "ajustarMediumDiv()" style="background-color: beige;">
         
-        <div style="background-color: black; height: 50px; display: block; width: 100%; position: fixed;">
-            <h1 style="background-color: black; width: 100%; margin: 0px; padding: 0px; border: 0px; height:60%">aromas naturales</h1>
+        <div style="background-color: #5DC1B9; height: 50px; display: block; width: 100%; position: fixed;">
+            <h1 style="background-color: #5DC1B9; width: 100%; margin: 0px; padding: 0px; border: 0px; height:60%">aromas naturales</h1>
             <p style="margin: 0px; padding: 0px; border: 0px; color: white;">salud y bienestar</p>
         </div>
         <div style="height: 50px;"></div>
         
         <div id='medium_div' style="background-color: beige; height: calc(100vh - 100px); display: flex; width: 100%;">
-                <div style="height: 100%; width: auto">
-                    <img id='medium_div_image' src="web/imagenes/conversion4.png" height=100% width="auto" alt=""/>
-                </div>
+            <div style="height: 100%; width: auto">
+                <img id='medium_div_image' src="web/imagenes/conversion4.png" height=100% width="auto" alt=""/>
+            </div>
             
             <div id="medium_div_text" style="height: 100%; min-width: 280px; text-align: center;">
                 <div style="transform: translate(-50%, -50%); top: 25%; position: relative; text-align: center; display: inline;">
@@ -160,10 +161,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </div>
         
         <div style="height: 50px;"></div>
-        <div style="background-color: black; height: 50px; display: flex; width: 100%; position: fixed; bottom: 0px;">
-            <nav class="navegacion">
+        <div style="background-color: #5DC1B9; height: 50px; display: flex; width: 100%; position: fixed; bottom: 0px;">
+            <nav class="navegacion" style="background-color: #5DC1B9">
                 <ul class="menuSuperior">
-                    <li style="display: inline-block; background-color: purple; padding-top: 6px; padding-bottom: 6px; margin-top: 6px;"><a href="index.html" style="color: white;">Inicio</a></li>
+                    <li style="display: inline-block; background-color: #eeC1B9; padding-top: 6px; padding-bottom: 6px; margin-top: 6px;"><a href="index.html" style="color: white;">Inicio</a></li>
                     <li><a href="Vision.html" style="color: white;">Vision</a></li>
                     <li><a href="Productos.html" style="color: white;">Productos</a></li>
                     <li><a href="MedioDePago.html" style="color: white;">Medio de pago</a></li>
