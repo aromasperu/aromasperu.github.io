@@ -26,6 +26,70 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
             gtag('config', 'G-RKHW33TGK2');
         </script>
+        
+        <script>
+            var debounceTimeoutId = null;
+            window.addEventListener('resize', function () {
+                clearTimeout(debounceTimeoutId);
+                debounceTimeoutId = setTimeout(ajustarMediumDiv, 250);
+            });
+            function ajustarMediumDiv() {
+                const image = document.getElementById('medium_div_image');
+                const container = document.getElementById('medium_div');
+                const content = document.getElementById('medium_div_text');
+                const adjacentImageWidth = image.offsetWidth;
+                const containerWidth = container.offsetWidth;
+                const contentWidth = containerWidth - adjacentImageWidth;
+                
+                console.log(image.offsetWidth);
+                    content.style.width = contentWidth + 'px';
+                
+                var originalImageWidth = image.naturalWidth;
+                var originalImageHeight = image.naturalHeight;    
+                var heightToWidth = originalImageHeight/originalImageWidth;
+                console.log("heightToWidth: " + heightToWidth);
+                var imageWidth = image.width;
+                var imageHeight = image.height;
+                //alternative 1
+                var calculatedHeightBasedOnWidth = imageWidth * heightToWidth;
+                console.log("calculatedHeightBasedOnWidth: " + calculatedHeightBasedOnWidth);
+                //alternative 2
+                var calculatedWidthBasedOnHeight = imageHeight / heightToWidth;
+                console.log("calculatedWidthBasedOnHeight: " + calculatedWidthBasedOnHeight);
+                
+                console.log("Original Image Height: " + originalImageHeight);
+                console.log("Original Image Width: " + originalImageWidth);
+            
+                console.log("Image Height: " + imageHeight);
+                console.log("Image Width: " + imageWidth);
+            
+                var windowHeight = window.innerHeight;
+                var windowWidth = window.innerWidth;
+                console.log("Window Height: " + windowHeight);
+                console.log("Window Width: " + windowWidth);
+                
+                if (windowWidth <= calculatedWidthBasedOnHeight) {
+                    console.log("este caso");
+                    image.style.width = "100%";
+                    image.style.height = "auto";
+                    container.style.display = "inline";
+                    
+                    content.style.display = "inline-block";
+                    container.style.backgroundColor = "beige";
+                    }
+                else if (windowHeight <= imageHeight) {
+                    image.style.height = "calc(100vh - 100px)";
+                    image.style.width = "auto";
+                    container.style.display = "flex";
+                    
+                    console.log(image.offsetWidth);
+                    content.style.width = contentWidth + 'px';
+                    content.style.display = "inline";
+                }
+                
+            }
+        </script>
+        
         <style>
             .background-video {
                 position: fixed;
@@ -62,70 +126,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <!--    <body style="background-image: url('../../src/java/imagenes/conversion4.png');"> -->
 
-    <body>
-        <!--    ---------------------------- 
-        <div class="background-video">
-            <video width="320" height="240"  autoplay loop>
-                <source src="../../../Itaya/web/WEB-INF/pexels-anna-shvets-5756175.mp4" type="video/mp4">
-                Your browser does not support the <code>video</code> tag.
-            </video>
+    <body onload = "ajustarMediumDiv()" style="background-color: beige;">
+        
+        <div style="background-color: #5DC1B9; height: 50px; display: block; width: 100%; position: fixed;">
+            <h1 style="background-color: #5DC1B9; width: 100%; margin: 0px; padding: 0px; border: 0px; height:60%">aromas naturales</h1>
+            <p style="margin: 0px; padding: 0px; border: 0px; color: white;">salud y bienestar</p>
         </div>
-            ---------------------------- -->
-        <!--    <div class="fondo" ></div> -->
-        <div class="barra_superior" >
-            <h1 class="titulo"><a href="index.html" style="color:white;">Aromas esenciales</a></h1>
+        <div style="height: 50px;"></div>
+        
+        <div id='medium_div' style="background-color: beige; height: calc(100vh - 90px); display: flex; width: 100%;">
+            <div style="height: 100%; width: auto">
+                <img id='medium_div_image' src="web/imagenes/conversion4.png" height=100% width="auto" alt=""/>
+            </div>
             
-            <nav class="navegacion">
-
+            <div id="medium_div_text" style="height: 100%; min-width: 280px; text-align: center;">
+                <div style="transform: translate(-50%, -50%); top: 25%; position: relative; text-align: center; display: inline;">
+                    <h2>Disfrute de aromas naturales</h2>
+                    <div style="display:block; text-align: center;">
+                        <ul style="display: inline-block; text-align: center;">
+                            <li>Aceite esencial de romero, 10ml</li>
+                            <li>Aceite esencial de lavanda, 10ml</li>
+                            <li>Aceite esencial de jazmin, 10ml</li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <div style="display: inline-block;">
+                        <div class="pedidos_aqui_por_whatsapp">
+                            <a style="color: white;" href="whatsapp://send?phone=+051 993 376 932&text=Hola,necesito mas información">Pedidos aqui por WhatsApp</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>        
+        </div>
+        
+        <div style="height: 40px;"></div>
+        <div style="background-color: #5DC1B9; height: 40px; display: flex; width: 100%; position: fixed; bottom: 0px;">
+            <nav class="navegacion" style="background-color: #5DC1B9">
                 <ul class="menuSuperior">
-                    <li style="display: inline-block; background-color: purple; padding-top: 6px; padding-bottom: 6px;"><a href="index.html" style="color: white;">Inicio</a></li>
+                    <li style="display: inline-block; background-color: #eeC1B9; padding-top: 6px; padding-bottom: 6px; margin-top: 6px;"><a href="index.html" style="color: white;">Inicio</a></li>
                     <li><a href="Vision.html" style="color: white;">Vision</a></li>
                     <li><a href="Productos.html" style="color: white;">Productos</a></li>
                     <li><a href="MedioDePago.html" style="color: white;">Medio de pago</a></li>
                 </ul>                   
             </nav>
-
-        </div>
-        <div style="height: 6rem;"></div>
-        <div style="display: block; height: 70vh">
-            
-        <!--        <img src="../../src/java/imagenes/descarga.jpg" width="220px" height="220px" alt=""/>
-                <img src="../../src/java/imagenes/WhatsApp Image 2023-01-25 at 23.03.09 (1).jpeg" width="220px" height="220px" alt=""/>
-                <img src="../../src/java/imagenes/conversion1.jpg" width="220px" height="220px" alt=""/>
-        -->     
-        <div class="imagen_desvanecida" style="display: flex; float: left; width: 50%; height: 100%;">
-            <img src="web/imagenes/conversion4.png" width="320px" height=100% alt=""/>
         </div>
         
-        <!--        <p>Los aceites esenciales son utilizados en perfumería, cosmética y medicina alternativa por sus propiedades terapéuticas y aromáticas.</p>
-        -->
-        <div style="display: inline; width: 50%">
-        <h2>Disfrute de aromas naturales</h2>
-        <div style="width:280px; display:inline-block; text-align: center;">
-        <ul>
-            <li>Aceite esencial de romero, 10ml</li>
-            <li>Aceite esencial de lavanda, 10ml</li>
-            <li>Aceite esencial de jazmin, 10ml</li>
-
-        </ul>
-            <br>
-            <div class="pedidos_aqui_por_whatsapp">
-                <a style="color: white;" href="whatsapp://send?phone=+051 993 376 932&text=Hola,necesito mas información">Pedidos aqui por WhatsApp</a>
-            </div>
-        </div>
-        </div>
-        </div>
-        
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="index.html" style="color: white;">Inicio</a></li>
-                    <li><a href="Vision.html" style="color: white;">Vision</a></li>
-                    <li><a href="Productos.html" style="color: white;">Productos</a></li>
-                    <li><a href="MedioDePago.html" style="color: white;"> Medio de pago</a></li>
-                </ul>      
-            </nav>
-        </footer>
-
     </body>
 </html>
