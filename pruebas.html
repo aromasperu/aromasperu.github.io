@@ -28,7 +28,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </script>
         
         <script>
-            window.addEventListener('resize', ajustarMediumDiv);
+            var debounceTimeoutId = null;
+            window.addEventListener('resize', function () {
+                clearTimeout(debounceTimeoutId);
+                debounceTimeoutId = setTimeout(ajustarMediumDiv, 250);
+            });
             function ajustarMediumDiv() {
                 const image = document.getElementById('medium_div_image');
                 const container = document.getElementById('medium_div');
@@ -36,8 +40,52 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 const adjacentImageWidth = image.offsetWidth;
                 const containerWidth = container.offsetWidth;
                 const contentWidth = containerWidth - adjacentImageWidth;
+                
                 console.log(image.offsetWidth);
-                content.style.width = contentWidth + 'px';
+                    content.style.width = contentWidth + 'px';
+                
+                var originalImageWidth = image.naturalWidth;
+                var originalImageHeight = image.naturalHeight;    
+                var heightToWidth = originalImageHeight/originalImageWidth;
+                console.log("heightToWidth: " + heightToWidth);
+                var imageWidth = image.width;
+                var imageHeight = image.height;
+                //alternative 1
+                var calculatedHeightBasedOnWidth = imageWidth * heightToWidth;
+                console.log("calculatedHeightBasedOnWidth: " + calculatedHeightBasedOnWidth);
+                //alternative 2
+                var calculatedWidthBasedOnHeight = imageHeight / heightToWidth;
+                console.log("calculatedWidthBasedOnHeight: " + calculatedWidthBasedOnHeight);
+                
+                console.log("Original Image Height: " + originalImageHeight);
+                console.log("Original Image Width: " + originalImageWidth);
+            
+                console.log("Image Height: " + imageHeight);
+                console.log("Image Width: " + imageWidth);
+            
+                var windowHeight = window.innerHeight;
+                var windowWidth = window.innerWidth;
+                console.log("Window Height: " + windowHeight);
+                console.log("Window Width: " + windowWidth);
+                
+                if (windowWidth <= calculatedWidthBasedOnHeight) {
+                    console.log("este caso");
+                    image.style.width = "100%";
+                    image.style.height = "auto";
+                    container.style.display = "inline";
+                    
+                    content.style.display = "inline-block";
+                    }
+                else if (windowHeight <= imageHeight) {
+                    image.style.height = "calc(100vh - 100px)";
+                    image.style.width = "auto";
+                    container.style.display = "flex";
+                    
+                    console.log(image.offsetWidth);
+                    content.style.width = contentWidth + 'px';
+                    content.style.display = "inline";
+                }
+                
             }
         </script>
         
@@ -81,15 +129,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
         <div style="background-color: black; height: 50px; display: block; width: 100%; position: fixed;">
             <h1 style="background-color: black; width: 100%; margin: 0px; padding: 0px; border: 0px; height:60%">aromas naturales</h1>
-            <nav class="navegacion">
-
-                <ul class="menuSuperior">
-                    <li style="display: inline-block; background-color: purple; padding-top: 6px; padding-bottom: 6px;"><a href="index.html" style="color: white;">Inicio</a></li>
-                    <li><a href="Vision.html" style="color: white;">Vision</a></li>
-                    <li><a href="Productos.html" style="color: white;">Productos</a></li>
-                    <li><a href="MedioDePago.html" style="color: white;">Medio de pago</a></li>
-                </ul>                   
-            </nav>
+            <p style="margin: 0px; padding: 0px; border: 0px; color: white;">salud y bienestar</p>
         </div>
         <div style="height: 50px;"></div>
         
@@ -121,7 +161,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
         <div style="height: 50px;"></div>
         <div style="background-color: black; height: 50px; display: flex; width: 100%; position: fixed; bottom: 0px;">
-            <p style="width: 100%; color: white;">tres</p>
+            <nav class="navegacion">
+                <ul class="menuSuperior">
+                    <li style="display: inline-block; background-color: purple; padding-top: 6px; padding-bottom: 6px; margin-top: 6px;"><a href="index.html" style="color: white;">Inicio</a></li>
+                    <li><a href="Vision.html" style="color: white;">Vision</a></li>
+                    <li><a href="Productos.html" style="color: white;">Productos</a></li>
+                    <li><a href="MedioDePago.html" style="color: white;">Medio de pago</a></li>
+                </ul>                   
+            </nav>
         </div>
     </body>
 </html>

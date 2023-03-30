@@ -5,81 +5,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>Inicio</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximun-scale=1.0">
-        <meta property='og:title' content='AROMASPERU'/>
-        <meta property='og:image' content='https://raw.githubusercontent.com/aromasperu/aromasperu.github.io/master/web/imagenes/conversion4.png'/>
-        <meta property='og:description' content='Aceites esenciales de lavanda, eucalipto, y más.'/>
-        <meta property='og:url' content='https://aromasperu.github.io/'/>
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='627' />
         <link href="MasEstilos.css" rel="stylesheet" type="text/css"/>
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKHW33TGK2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
 
-            gtag('config', 'G-RKHW33TGK2');
-        </script>
         
         <script>
-            window.addEventListener('resize', ajustarMediumDiv);
-            function ajustarMediumDiv() {
+            var debounceTimeoutId = null;
+            window.addEventListener('resize', function () {
+                clearTimeout(debounceTimeoutId);
+                debounceTimeoutId = setTimeout(recarga, 250);
+            });
+            function recarga() {
                 const image = document.getElementById('medium_div_image');
                 const container = document.getElementById('medium_div');
-                const content = document.getElementById('medium_div_text');
-                const adjacentImageWidth = image.offsetWidth;
-                const containerWidth = container.offsetWidth;
-                const contentWidth = containerWidth - adjacentImageWidth;
-                console.log(image.offsetWidth);
-                content.style.width = contentWidth + 'px';
+                
+                var originalImageWidth = image.naturalWidth;
+                var originalImageHeight = image.naturalHeight;    
+                var heightToWidth = originalImageHeight/originalImageWidth;
+                console.log("heightToWidth: " + heightToWidth);
+                var imageWidth = image.width;
+                var imageHeight = image.height;
+                //alternative 1
+                var calculatedHeightBasedOnWidth = imageWidth * heightToWidth;
+                console.log("calculatedHeightBasedOnWidth: " + calculatedHeightBasedOnWidth);
+                //alternative 2
+                var calculatedWidthBasedOnHeight = imageHeight / heightToWidth;
+                console.log("calculatedWidthBasedOnHeight: " + calculatedWidthBasedOnHeight);
+                
+                console.log("Original Image Height: " + originalImageHeight);
+                console.log("Original Image Width: " + originalImageWidth);
+            
+                console.log("Image Height: " + imageHeight);
+                console.log("Image Width: " + imageWidth);
+            
+                var windowHeight = window.innerHeight;
+                var windowWidth = window.innerWidth;
+                console.log("Window Height: " + windowHeight);
+                console.log("Window Width: " + windowWidth);
+                
+                if (windowWidth <= calculatedWidthBasedOnHeight) {
+                    console.log("este caso");
+                    image.style.width = "100%";
+                    image.style.height = "auto";
+                    container.style.display = "inline";
+                }
+                else if (windowHeight <= imageHeight) {
+                    image.style.height = "100vh";
+                    image.style.width = "auto";
+                    container.style.display = "flex";
+                }
             }
         </script>
         
-        <style>
-            .background-video {
-                position: fixed;
-                right: 0;
-                bottom: 0;
-                min-width: 100%;
-                min-height: 100%;
-                width: auto;
-                height: auto;
-                z-index: -100;
-            }
-
-            .content-layer {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(255, 255, 255, 0.7);
-                z-index: 1;
-            }
-
-            video {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                min-width: 100%;
-                min-height: 100%;
-            }
-        </style>
-        <meta name="google-site-verification" content="4ul5zH2luyLzlBtOB3IzbYvpKyF26dGjiatH9yo6vy4" />
 
     </head>
     <!--    <body style="background-image: url('../../src/java/imagenes/conversion4.png');"> -->
 
-    <body onload = "ajustarMediumDiv()">
-        <div style="background-color: yellow">hola</div>
-        <div style="background-color: red">hola</div>
-        
+    <body onload = "recarga()">
+        <div id="medium_div" style="display: flex; height: 100vh;">
+            <div style="background-color: yellow;">
+                <img id='medium_div_image' src="web/imagenes/conversion4.png" height=100% width=100% alt=""/>
+            </div>
+            <div style="background-color: red; height: auto; min-width: 180px;">hola</div>
+        </div>
     </body>
 </html>
